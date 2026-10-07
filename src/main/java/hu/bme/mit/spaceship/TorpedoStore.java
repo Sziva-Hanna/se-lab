@@ -13,6 +13,7 @@ public class TorpedoStore {
   private double FAILURE_RATE = 0.0; //NOSONAR
   
   private Random generator;
+  // it does not need to be public, only this class uses it
 
   private int torpedoCount = 0;
 
@@ -34,7 +35,7 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      throw new IllegalArgumentException("numberOfTorpedos");
+      throw new IllegalStateException("numberOfTorpedos");
     }
 
     boolean success = false;
